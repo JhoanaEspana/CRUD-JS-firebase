@@ -8,7 +8,8 @@ import {
   deleteDoc,
   onSnapshot,
   doc,
-  getDoc
+  getDoc,
+  updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -54,4 +55,4 @@ export const deleteStudent = (id) => deleteDoc(doc(db, 'students', id));
 
 export const getStudent = (id) => getDoc(doc(db, 'students', id));           
 
-
+export const updateStudent = (id, newFields) => updateDoc(doc(db, 'students', id), newFields);

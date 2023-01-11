@@ -43,7 +43,7 @@
         </thead>
 
         <tbody class="students-table-body">
-<!--           <tr>
+          <!--           <tr>
             <th>1</th>
             <td>jhoa</td>
             <td>Espana</td>
@@ -64,8 +64,8 @@
     </div>
   </main>
 
-  <div class="modal" id="modal">
-    <div class="modal-background"></div>
+  <div class="modal" id="modal-update">
+
     <div class="modal-card">
       <header class="modal-card-head">
         <p class="modal-card-title">Registrar nuevo usuario</p>
@@ -77,21 +77,23 @@
           <div class="field">
             <label class="label">Nombre</label>
             <div class="control">
-              <input class="input" type="text" name="nombre" placeholder="Ingresa tu nombre">
+              <input class="input" id="student-nombre" type="text" name="nombre" placeholder="Ingresa tu nombre">
             </div>
           </div>
 
           <div class="field">
             <label class="label">Apellido Paterno</label>
             <div class="control">
-              <input class="input" type="text" name="apePat" placeholder="Ingresa tu Apellido Paterno">
+              <input class="input" id="student-apepat" type="text" name="apePat"
+                placeholder="Ingresa tu sApellido Paterno">
             </div>
           </div>
 
           <div class="field">
             <label class="label">Apellido Materno</label>
             <div class="control">
-              <input class="input" type="text" name="apeMat" placeholder="Ingresa tu Apellido Materno">
+              <input class="input" id="student-apemat" type="text" name="apeMat"
+                placeholder="Ingresa tu Apellido Materno">
             </div>
           </div>
 
@@ -99,7 +101,7 @@
           <div class="field">
             <label class="label">Teléfono: </label>
             <div class="control has-icons-left">
-              <input class="input" type="tel" name="cel" placeholder="+52 123456">
+              <input class="input" id="student-cel" type="tel" name="cel" placeholder="+52 123456">
               <span class="icon is-small is-left">
                 <i class="fas fa-phone"></i>
               </span>
@@ -109,7 +111,7 @@
           <div class="field">
             <label class="label">Email: </label>
             <div class="control has-icons-left">
-              <input class="input" type="email" name="email" placeholder="example@example.com">
+              <input class="input" id="student-email" type="email" name="email" placeholder="example@example.com">
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope"></i>
               </span>
@@ -119,7 +121,8 @@
           <div class="field">
             <label class="label">Descripción</label>
             <div class="control">
-              <textarea class="textarea" name="desc" placeholder="Descripción"></textarea>
+              <textarea class="textarea" id="student-description" name="desc"
+                placeholder="Descripción"></textarea>
             </div>
           </div>
       </section>

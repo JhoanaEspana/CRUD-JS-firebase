@@ -4,13 +4,17 @@ import {
   onGetStudent,
   deleteStudent,
   getStudent,
+  updateStudent,
 } from './firebase.js';
 const studentTable = document.querySelector('.students-table-body');
 
 const openModal = document.getElementById('openRegisterModal');
-const modal = document.getElementById('modal');
+const modal = document.getElementById('modal-update');
 const closeModal = document.getElementById('closeRegisterModal');
 const registerForm = document.getElementById('register-form');
+
+let editStatus = true;
+let id = '';
 
 const showRegisterModal = () => {
   modal.classList.toggle('is-active');
@@ -21,7 +25,7 @@ closeModal.addEventListener('click', showRegisterModal);
 
 window.addEventListener('DOMContentLoaded', async () => {
   onGetStudent((querySnapshot) => {
-    let html = "";
+    let html = '';
 
     querySnapshot.forEach((doc) => {
       const studentData = doc.data();
@@ -45,7 +49,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     studentTable.innerHTML = html;
 
-
     // with target destructuring 👇
     const btnsDelete = studentTable.querySelectorAll('.is-danger');
     btnsDelete.forEach((btn) => {
@@ -58,12 +61,25 @@ window.addEventListener('DOMContentLoaded', async () => {
     // without target destructuring 👇
     const btnsEdit = studentTable.querySelectorAll('.is-warning');
     btnsEdit.forEach((btn) => {
-      btn.addEventListener('click', async(e) => {
-        console.log(e.target.dataset.id);
+      btn.addEventListener('click', async (e) => {
+        // console.log(e.target.dataset.id);
         const doc = await getStudent(e.target.dataset.id);
-        console.log(doc.data());
-      })
-    })
+        // console.log(doc.data());
+        const student = doc.data();
+        showRegisterModal();
+        registerForm['student-nombre'].value = student.nombre;
+        registerForm['student-apepat'].value = student.apellidoPaterno;
+        registerForm['student-apemat'].value = student.apellidoMaterno;
+        registerForm['student-cel'].value = student.telefono;
+        registerForm['student-email'].value = student.correoElectronico;
+        registerForm['student-description'].value = student.descripcion;
+
+        editStatus = true;
+        id = doc.id;
+
+
+      });
+    });
   });
 });
 
@@ -77,14 +93,27 @@ registerForm.addEventListener('submit', (e) => {
   const correoElectronico = registerForm['email'].value;
   const descripcion = registerForm['desc'].value;
 
-  saveStudent(
-    nombre,
-    apellidoPaterno,
-    apellidoMaterno,
-    telefono,
-    correoElectronico,
-    descripcion
-  );
+  if (!editStatus) {
+    saveStudent(
+      nombre,
+      apellidoPaterno,
+      apellidoMaterno,
+      telefono,
+      correoElectronico,
+      descripcion
+    );
+  } else {
+    updateStudent(id, {
+      nombre,
+      apellidoPaterno,
+      apellidoMaterno,
+      telefono,
+      correoElectronico,
+      descripcion,
+    });
+
+    editStatus = false;
+  }
 
   registerForm.reset();
   modal.classList.remove('is-active');
