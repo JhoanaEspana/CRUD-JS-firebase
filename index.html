@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/a444172606.js" crossorigin="anonymous"></script>
+  <title>JS Crud - Firebase</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">JavaScript CRUD</a>
+      </div>
+    </nav>
+  </header>
+  <main class="main-content">
+    <div class="crud-container">
+      <div class="crud-header">
+        <h1>Estudiantes registrados</h1>
+        <button class="button is-success" id="openRegisterModal">
+          <i class="fas fa-plus"></i>
+          <span>Nuevo Estudiante</span>
+        </button>
+      </div>
+
+      <table class="students-table">
+        <thead class="students-table-header">
+          <tr>
+            <th>*</th>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Telefono</th>
+            <th>Email</th>
+            <th>Opciones</th>
+
+          </tr>
+        </thead>
+
+        <tbody class="students-table-body">
+<!--           <tr>
+            <th>1</th>
+            <td>jhoa</td>
+            <td>Espana</td>
+            <td>Urresty</td>
+            <td>3256484</td>
+            <td>jhoa@gmail.com</td>
+            <td>
+              <button class="button is-warning">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button class="button is-danger">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr> -->
+        </tbody>
+
+    </div>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Registrar nuevo usuario</p>
+        <button class="delete" aria-label="close" id="closeRegisterModal"></button>
+      </header>
+      <section class="modal-card-body">
+
+        <form id="register-form">
+          <div class="field">
+            <label class="label">Nombre</label>
+            <div class="control">
+              <input class="input" type="text" name="nombre" placeholder="Ingresa tu nombre">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Apellido Paterno</label>
+            <div class="control">
+              <input class="input" type="text" name="apePat" placeholder="Ingresa tu Apellido Paterno">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Apellido Materno</label>
+            <div class="control">
+              <input class="input" type="text" name="apeMat" placeholder="Ingresa tu Apellido Materno">
+            </div>
+          </div>
+
+
+          <div class="field">
+            <label class="label">Teléfono: </label>
+            <div class="control has-icons-left">
+              <input class="input" type="tel" name="cel" placeholder="+52 123456">
+              <span class="icon is-small is-left">
+                <i class="fas fa-phone"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Email: </label>
+            <div class="control has-icons-left">
+              <input class="input" type="email" name="email" placeholder="example@example.com">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Descripción</label>
+            <div class="control">
+              <textarea class="textarea" name="desc" placeholder="Descripción"></textarea>
+            </div>
+          </div>
+      </section>
+
+      <footer class="modal-card-foot">
+        <button type="submit" class="button is-success">
+          <i class="fas fa-save"></i>
+          <span>Registrar</span></button>
+      </footer>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="main.js"></script>
+
+</body>
+
+</html>
