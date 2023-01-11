@@ -76,8 +76,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 
         editStatus = true;
         id = doc.id;
-
-
       });
     });
   });

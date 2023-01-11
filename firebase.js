@@ -16,12 +16,8 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyCyc082LMT_FIZevu5_gQiLIYG0VP2EnI4',
-  authDomain: 'crud-84fa8.firebaseapp.com',
-  projectId: 'crud-84fa8',
-  storageBucket: 'crud-84fa8.appspot.com',
-  messagingSenderId: '1031781638568',
-  appId: '1:1031781638568:web:81a871a7a0842a77a03d9d',
+  // Put you credentials here
+
 };
 
 // Initialize Firebase
